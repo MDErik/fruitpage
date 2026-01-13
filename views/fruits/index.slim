@@ -1,11 +1,17 @@
 h1 sök efter en frukt
 
-//- @datafrukt.each do |fruit|
-//    h2 = fruit["name"]
-//    p Det finns #{fruit["amount"]}st
-//    hr
-//
-//end
+- @datafrukt.each do |fruit|
+    h2 
+        a href="/fruits/#{fruit["id"]}/edit" #{fruit["name"]}
+
+    h3 Det finns #{fruit["amount"]} 
+
+    form action="/fruits/#{fruit["id"]}/delete" method="post"
+        input type="submit" value="Delete👌"
+
+
+    hr
+end
 
 
 form action="/fruits" method="get"
@@ -13,3 +19,4 @@ form action="/fruits" method="get"
     input type="submit" value="Sök!"
 
 h1 Alla frukter 
+
