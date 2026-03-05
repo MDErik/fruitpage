@@ -1,4 +1,3 @@
-
 require 'sinatra'
 require 'slim'
 require 'sinatra/reloader'
@@ -44,34 +43,34 @@ post('/fruit') do
 end
  
  
-get('/animals') do
-  db = SQLite3::Database.new("db/animals.db")
-   
-  db.results_as_hash = true
+#get('/animals') do
+#  db = SQLite3::Database.new("db/animals.db")
+#   
+#  db.results_as_hash = true
+#
+#  @animaldata = db.execute("SELECT * FROM #animals")
+#
+#  p @animaldata
+#
+#  query = params[:q]
+#
+#  if query && !query.empty?
+#    @animaldata = db.execute("SELECT * FROM #animals WHERE name LIKE ?", "%#{query}%")
+#  else
+#    @animaldata = db.execute("SELECT * FROM #animals")
+#  end
+#
+#  slim(:animals)
+#end
 
-  @animaldata = db.execute("SELECT * FROM animals")
-
-  p @animaldata
-
-  query = params[:q]
-
-  if query && !query.empty?
-    @animaldata = db.execute("SELECT * FROM animals WHERE name LIKE ?", "%#{query}%")
-  else
-    @animaldata = db.execute("SELECT * FROM animals")
-  end
-
-  slim(:animals)
-end
-
-get('/newnew') do
-  new_animal = params[:new_animal]
-  amount = params[:amount].to_i
-
-
-
-  slim(:newnew)
-end
+#get('/newnew') do
+#  new_animal = params[:new_animal]
+#  amount = params[:amount].to_i
+#
+#
+#
+#  slim(:newnew)
+#end
 
 post('/') do
   new_fruit = params[:new_fruit]
@@ -110,26 +109,3 @@ post('/fruits/:id/update') do
   redirect('/fruits')
 
 end
-
-#get('/') do
-#  slim(:start)
-#
-#end
-#
-#get('/bye') do
-#  slim(:bye)
-#
-#end
-#
-#
-# 
-# get('/frukt/:id') do
-#  fruits = ["Äpple","Banan","Apelsin"]
-#  id = params[:id].to_i
-#  @Fruit = fruits[id]
-#  slim(:frukt)
-#  
-#end
-#
-#
-#
